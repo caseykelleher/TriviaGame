@@ -1,93 +1,103 @@
 var myQuestions = [
 	{
-		question: "What is 10/2?",
+		question: "Name the actor who starred as Michael Knight in the “Knight Rider”?",
 		answers: {
-			a: '3',
-			b: '5',
-			c: '115'
+			a: 'David Hasselhoff',
+			b: 'Richard Dean Anderson',
+            c: 'Tom Selleck',
+            d: 'Don Johnson'
 		},
-		correctAnswer: 'b'
+		correctAnswer: 'a'
 	},
 	{
-		question: "What is 30/3?",
+		question: "Which actress was never nude in the series “Sex And The City”?",
 		answers: {
-			a: '3',
-			b: '5',
-			c: '10'
+			a: 'Kristin Davis',
+			b: 'Cynthia Nixon',
+            c: 'Sarah Jessica Parker',
+            d: 'Kim Cattrall'
 		},
 		correctAnswer: 'c'
-    }
+    },
     {
-		question: "What is 30/3?",
+		question: "How many people Jack Bauer killed in 192 hours?",
 		answers: {
-			a: '3',
-			b: '5',
-			c: '10'
+			a: '125',
+			b: '267',
+            c: '275',
+            d: '309'
 		},
-		correctAnswer: 'c'
-    }
+		correctAnswer: 'b'
+    },
     {
-		question: "What is 30/3?",
+		question: "In the TV series 'Lost', what is the name of the group that conducted scientific experiments on the island?",
 		answers: {
-			a: '3',
-			b: '5',
-			c: '10'
+			a: 'Dharma Initiative',
+			b: 'Oceanic Six',
+            c: 'Ajira',
+            d: 'The Others'
 		},
-		correctAnswer: 'c'
-    }
+		correctAnswer: 'a'
+    },
     {
-		question: "What is 30/3?",
+		question: "What is Doug Heffernan's profession on the TV sitcom 'The King of Queens'?",
 		answers: {
-			a: '3',
-			b: '5',
-			c: '10'
+			a: 'Delivery Driver',
+			b: 'Electrician',
+            c: 'Plumber',
+            d: 'Mailman'
 		},
-		correctAnswer: 'c'
-    }
+		correctAnswer: 'a'
+    },
     {
-		question: "What is 30/3?",
+		question: "Which of the following animated sitcoms was created by Seth MacFarlane?",
 		answers: {
-			a: '3',
-			b: '5',
-			c: '10'
+			a: 'The Simpsons',
+			b: 'American Dad',
+            c: 'Futurama',
+            d: 'South Park'
 		},
-		correctAnswer: 'c'
-    }
+		correctAnswer: 'b'
+    },
     {
-		question: "What is 30/3?",
+		question: "Airing from 1994 to 2000, in which city was the medical drama TV show ER set?",
 		answers: {
-			a: '3',
-			b: '5',
-			c: '10'
+			a: 'Dallas',
+			b: 'St. Louis',
+            c: 'Chicago',
+            d: 'Denver'
 		},
 		correctAnswer: 'c'
-    }
+    },
     {
-		question: "What is 30/3?",
+		question: "Who plays Nancy Botwin on the comedy-drama TV show 'Weeds'?",
 		answers: {
-			a: '3',
-			b: '5',
-			c: '10'
+			a: 'Tonye Patano',
+			b: 'Allie Grant',
+            c: 'Elizabeth Perkins',
+            d: 'Mary-Louis Parker'
 		},
-		correctAnswer: 'c'
-    }
+		correctAnswer: 'd'
+    },
     {
-		question: "What is 30/3?",
+		question: "Which character owned the bar on the popular American sitcom 'Cheers'?",
 		answers: {
-			a: '3',
-			b: '5',
-			c: '10'
+			a: 'Sam Malone',
+			b: 'Woody Boyd',
+            c: 'Frasier Crane',
+            d: 'Cliff Clavin'
 		},
-		correctAnswer: 'c'
-    }
+		correctAnswer: 'a'
+    },
     {
-		question: "What is 30/3?",
+		question: "What was the name of the hangout on the show 'Saved by the Bell'?",
 		answers: {
-			a: '3',
-			b: '5',
-			c: '10'
+			a: 'The Malibu Latch Club',
+			b: 'The Malibu Warf',
+            c: 'The Pier',
+            d: 'Malibu Sands Beach Club'
 		},
-		correctAnswer: 'c'
+		correctAnswer: 'd'
 	}
 ];
 
@@ -96,34 +106,34 @@ var resultsContainer = document.getElementById('results');
 var submitButton = document.getElementById('submit');
 
 
-function generateQuiz(questions, quizContainer, resultsContainer, submitButton){
+function generateQuiz(myQuestions, quizContainer, resultsContainer, submitButton){
 
-	function showQuestions(questions, quizContainer){
+	function showMyQuestions(myQuestions, quizContainer); {
 		var output = [];
 	    var answers;
 
 	// for each question...
-	    for(var i=0; i<questions.length; i++){
+	    for(var i=0; i<myQuestions.length; i++){
 		
 		// first reset the list of answers
 		answers = [];
 
 		// for each available answer to this question...
-		for(letter in questions[i].answers){
+		for(letter in myQuestions[i].answers){
 
 			// ...add an html radio button
 			answers.push(
 				'<label>'
 					+ '<input type="radio" name="question'+i+'" value="'+letter+'">'
 					+ letter + ': '
-					+ questions[i].answers[letter]
+					+ myQuestions[i].answers[letter]
 				+ '</label>'
 			);
 		}
 
 		// add this question and its answers to the output
 		output.push(
-			'<div class="question">' + questions[i].question + '</div>'
+			'<div class="question">' + myQuestions[i].question + '</div>'
 			+ '<div class="answers">' + answers.join('') + '</div>'
 		);
 	}
@@ -132,9 +142,8 @@ function generateQuiz(questions, quizContainer, resultsContainer, submitButton){
 	    quizContainer.innerHTML = output.join('');
 }
     }
-    showQuestions(questions, quizContainer);
 
-	function showResults(questions, quizContainer, resultsContainer){
+	function showResults(myQuestions, quizContainer, resultsContainer){
 		// gather answer containers from our quiz
 	var answerContainers = quizContainer.querySelectorAll('.answers');
 	
@@ -143,13 +152,13 @@ function generateQuiz(questions, quizContainer, resultsContainer, submitButton){
 	var numCorrect = 0;
 	
 	// for each question...
-	for(var i=0; i<questions.length; i++){
+	for(var i=0; i<myQuestions.length; i++){
 
 		// find selected answer
 		userAnswer = (answerContainers[i].querySelector('input[name=question'+i+']:checked')||{}).value;
 		
 		// if answer is correct
-		if(userAnswer===questions[i].correctAnswer){
+		if(userAnswer===myQuestions[i].correctAnswer){
 			// add to the number of correct answers
 			numCorrect++;
 			
@@ -164,16 +173,16 @@ function generateQuiz(questions, quizContainer, resultsContainer, submitButton){
 	}
 
 	// show number of correct answers out of total
-	resultsContainer.innerHTML = numCorrect + ' out of ' + questions.length;
+	resultsContainer.innerHTML = numCorrect + ' out of ' + myQuestions.length;
 }
 	
 
 	// show the questions
-	showQuestions(questions, quizContainer);
+	showQuestions(myQuestions, quizContainer);
 
 	// when user clicks submit, show results
 	submitButton.onclick = function(){
-		showResults(questions, quizContainer, resultsContainer);
+		showResults(myQuestions, quizContainer, resultsContainer);
     }
     
     generateQuiz(myQuestions, quizContainer, resultsContainer, submitButton);

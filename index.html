@@ -3,19 +3,48 @@
 <html lang="en-us">
 
 <head>
-   <link rel="sylesheet" href="../TriviaGame/assets/css/">
+   <link rel="sylesheet" href="../TriviaGame/assets/css/style.css">
   <meta charset="UTF-8">
   <title>Document</title>
 
 </head>
 
 <body>
-    <div id="quiz"></div>
-<button id="submit">Get Results</button>
-<div id="results"></div>
-  
-  <script type="text/javascript" src="../TriviaGame/assets/javascript/app.js"></script>
+  <div id="container">
+    <div id="start">Start Quiz!</div>
+    <div id="quiz" style="display: none">
+        <div id="question"></div>
+        <div id="qImg"></div>
+        <div id="choices">
+            <div class="choice" id="A" onclick="checkAnswer('A')"></div>
+            <div class="choice" id="B" onclick="checkAnswer('B')"></div>
+            <div class="choice" id="C" onclick="checkAnswer('C')"></div>
+        </div>
+        <div id="timer">
+            <div id="counter"></div>
+            <div id="btimeGauge"></div>
+            <div id="timeGauge"></div>
+        </div>
+        <div id="progress"></div>
+    </div>
+    <div id="scoreContainer" style="display: none"></div>
+</div>
 
+
+
+
+
+
+
+    
+
+     
+
+
+
+
+
+<script type="text/javascript" src="../TriviaGame/assets/javascript/app.js"></script>
 </body>
 
 </html>

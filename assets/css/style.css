@@ -23,3 +23,15 @@ body{
 #submit:hover{
 	background-color: #3a8;
 }
+
+.container {
+		font-family: 'Times New Roman', Times, serif;
+		font-weight: normal;
+		font-style: normal;
+		color: black;
+		font-style: bold;
+		font-size: 40px;
+		border-block-color: black 3px;
+	
+	
+}
