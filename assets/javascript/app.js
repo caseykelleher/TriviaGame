@@ -1,188 +1,137 @@
+const start = document.getElementById("start");
+const quiz = document.getElementById("quiz");
+const question = document.getElementById("question");
+const qImg = document.getElementById("qImg");
+const choiceA = document.getElementById("A");
+const choiceB = document.getElementById("B");
+const choiceC = document.getElementById("C");
+const choiceD = document.getElementById("D");
+const counter = document.getElementById("counter");
+const timeGauge = document.getElementById("timeGauge");
+const progress = document.getElementById("progress");
+const scoreDiv = document.getElementById("scoreContainer");
+
+
 var myQuestions = [
 	{
 		question: "Name the actor who starred as Michael Knight in the “Knight Rider”?",
+		imgSrc : "/Users/caseykelleher/UCF/TriviaGame/assets/images/knightrider.jpeg",
 		answers: {
-			a: 'David Hasselhoff',
-			b: 'Richard Dean Anderson',
-            c: 'Tom Selleck',
-            d: 'Don Johnson'
+			choiceA: 'David Hasselhoff',
+			choiceB: 'Richard Dean Anderson',
+            choiceC: 'Tom Selleck',
+            choiceD: 'Don Johnson'
 		},
-		correctAnswer: 'a'
+		correctAnswer: 'A'
 	},
 	{
 		question: "Which actress was never nude in the series “Sex And The City”?",
+		imgSrc : "/Users/caseykelleher/UCF/TriviaGame/assets/images/sexandthecity.jpeg",
 		answers: {
-			a: 'Kristin Davis',
-			b: 'Cynthia Nixon',
-            c: 'Sarah Jessica Parker',
-            d: 'Kim Cattrall'
+			choiceA: 'Kristin Davis',
+			choiceB: 'Cynthia Nixon',
+            choiceC: 'Sarah Jessica Parker',
+            choiceD: 'Kim Cattrall'
 		},
-		correctAnswer: 'c'
+		correctAnswer: 'C'
     },
     {
 		question: "How many people Jack Bauer killed in 192 hours?",
+		imgSrc : "/Users/caseykelleher/UCF/TriviaGame/assets/images/jackbauer.jpeg",
 		answers: {
-			a: '125',
-			b: '267',
-            c: '275',
-            d: '309'
+			choiceA: '125',
+			choiceB: '267',
+            choiceC: '275',
+            choiceD: '309'
 		},
-		correctAnswer: 'b'
+		correctAnswer: 'B'
     },
     {
 		question: "In the TV series 'Lost', what is the name of the group that conducted scientific experiments on the island?",
+		imgSrc : "/Users/caseykelleher/UCF/TriviaGame/assets/images/lost.jpeg",
 		answers: {
-			a: 'Dharma Initiative',
-			b: 'Oceanic Six',
-            c: 'Ajira',
-            d: 'The Others'
+			choiceA: 'Dharma Initiative',
+			choiceB: 'Oceanic Six',
+            choiceC: 'Ajira',
+            choiceD: 'The Others'
 		},
-		correctAnswer: 'a'
+		correctAnswer: 'A'
     },
     {
 		question: "What is Doug Heffernan's profession on the TV sitcom 'The King of Queens'?",
+		imgSrc : "/Users/caseykelleher/UCF/TriviaGame/assets/images/kingofqueens.jpeg",
 		answers: {
-			a: 'Delivery Driver',
-			b: 'Electrician',
-            c: 'Plumber',
-            d: 'Mailman'
+			choiceA: 'Delivery Driver',
+			choiceB: 'Electrician',
+            choiceC: 'Plumber',
+            choiceD: 'Mailman'
 		},
-		correctAnswer: 'a'
+		correctAnswer: 'A'
     },
     {
 		question: "Which of the following animated sitcoms was created by Seth MacFarlane?",
+		imgSrc : "/Users/caseykelleher/UCF/TriviaGame/assets/images/seth.jpeg",
 		answers: {
-			a: 'The Simpsons',
-			b: 'American Dad',
-            c: 'Futurama',
-            d: 'South Park'
+			choiceA: 'The Simpsons',
+			choiceB: 'American Dad',
+            choiceC: 'Futurama',
+            choiceD: 'South Park'
 		},
-		correctAnswer: 'b'
+		correctAnswer: 'B'
     },
     {
 		question: "Airing from 1994 to 2000, in which city was the medical drama TV show ER set?",
+		imgSrc : "/Users/caseykelleher/UCF/TriviaGame/assets/images/ER.jpeg",
 		answers: {
-			a: 'Dallas',
-			b: 'St. Louis',
-            c: 'Chicago',
-            d: 'Denver'
+			choiceA: 'Dallas',
+			choiceB: 'St. Louis',
+            choiceC: 'Chicago',
+            choiceD: 'Denver'
 		},
-		correctAnswer: 'c'
+		correctAnswer: 'C'
     },
     {
 		question: "Who plays Nancy Botwin on the comedy-drama TV show 'Weeds'?",
+		imgSrc : "/Users/caseykelleher/UCF/TriviaGame/assets/images/weeds.jpeg",
 		answers: {
-			a: 'Tonye Patano',
-			b: 'Allie Grant',
-            c: 'Elizabeth Perkins',
-            d: 'Mary-Louis Parker'
+			choiceA: 'Tonye Patano',
+			choiceB: 'Allie Grant',
+            choiceC: 'Elizabeth Perkins',
+            choiceD: 'Mary-Louis Parker'
 		},
-		correctAnswer: 'd'
+		correctAnswer: 'D'
     },
     {
 		question: "Which character owned the bar on the popular American sitcom 'Cheers'?",
+		imgSrc : "/Users/caseykelleher/UCF/TriviaGame/assets/images/cheers.jpeg",
 		answers: {
-			a: 'Sam Malone',
-			b: 'Woody Boyd',
-            c: 'Frasier Crane',
-            d: 'Cliff Clavin'
+			choiceA: 'Sam Malone',
+			choiceB: 'Woody Boyd',
+			choiceC: 'Frasier Crane',
+            choiceD: 'Cliff Clavin'
 		},
-		correctAnswer: 'a'
+		correctAnswer: 'A'
     },
     {
 		question: "What was the name of the hangout on the show 'Saved by the Bell'?",
+		imgSrc : "/Users/caseykelleher/UCF/TriviaGame/assets/images/savedbythebell.jpeg",
 		answers: {
-			a: 'The Malibu Latch Club',
-			b: 'The Malibu Warf',
-            c: 'The Pier',
-            d: 'Malibu Sands Beach Club'
+			choiceA: 'The Malibu Latch Club',
+			choiceB: 'The Malibu Warf',
+            choiceC: 'The Pier',
+            choiceD: 'Malibu Sands Beach Club'
 		},
-		correctAnswer: 'd'
+		correctAnswer: 'D'
 	}
 ];
 
-var quizContainer = document.getElementById('quiz');
-var resultsContainer = document.getElementById('results');
-var submitButton = document.getElementById('submit');
+var lastQuestion = questions.length - 1;
+var runningQuestion = 0;
+var count = 0;
+var questionTime = 10; // 10s
+var gaugeWidth = 150; // 150px
+var gaugeUnit = gaugeWidth / questionTime;
+var TIMER;
+var score = 0;
 
 
-function generateQuiz(myQuestions, quizContainer, resultsContainer, submitButton){
-
-	function showMyQuestions(myQuestions, quizContainer); {
-		var output = [];
-	    var answers;
-
-	// for each question...
-	    for(var i=0; i<myQuestions.length; i++){
-		
-		// first reset the list of answers
-		answers = [];
-
-		// for each available answer to this question...
-		for(letter in myQuestions[i].answers){
-
-			// ...add an html radio button
-			answers.push(
-				'<label>'
-					+ '<input type="radio" name="question'+i+'" value="'+letter+'">'
-					+ letter + ': '
-					+ myQuestions[i].answers[letter]
-				+ '</label>'
-			);
-		}
-
-		// add this question and its answers to the output
-		output.push(
-			'<div class="question">' + myQuestions[i].question + '</div>'
-			+ '<div class="answers">' + answers.join('') + '</div>'
-		);
-	}
-
-	    // finally combine our output list into one string of html and put it on the page
-	    quizContainer.innerHTML = output.join('');
-}
-    }
-
-	function showResults(myQuestions, quizContainer, resultsContainer){
-		// gather answer containers from our quiz
-	var answerContainers = quizContainer.querySelectorAll('.answers');
-	
-	// keep track of user's answers
-	var userAnswer = '';
-	var numCorrect = 0;
-	
-	// for each question...
-	for(var i=0; i<myQuestions.length; i++){
-
-		// find selected answer
-		userAnswer = (answerContainers[i].querySelector('input[name=question'+i+']:checked')||{}).value;
-		
-		// if answer is correct
-		if(userAnswer===myQuestions[i].correctAnswer){
-			// add to the number of correct answers
-			numCorrect++;
-			
-			// color the answers green
-			answerContainers[i].style.color = 'lightgreen';
-		}
-		// if answer is wrong or blank
-		else{
-			// color the answers red
-			answerContainers[i].style.color = 'red';
-		}
-	}
-
-	// show number of correct answers out of total
-	resultsContainer.innerHTML = numCorrect + ' out of ' + myQuestions.length;
-}
-	
-
-	// show the questions
-	showQuestions(myQuestions, quizContainer);
-
-	// when user clicks submit, show results
-	submitButton.onclick = function(){
-		showResults(myQuestions, quizContainer, resultsContainer);
-    }
-    
-    generateQuiz(myQuestions, quizContainer, resultsContainer, submitButton);
